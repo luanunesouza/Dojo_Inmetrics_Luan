@@ -10,9 +10,12 @@ Quando(/^fizer uma busca pelo nome "([^"]*)"$/) do |arg1|
 end
 
 Então(/^faço comparação do dólar$/) do
-  dolar = find(:xpath, "//*[@id='cambio']/ul/li[1]/p[2]/span").text
+  dolarperc = find(:xpath, "//*[@id='cambio']/ul/li[1]/p[2]").text
   valor = "3,20"
+  values = dolarperc.split(" ")
+  dolar = dolarperc[10..13]
   if dolar < valor
+  	puts values[2]
 	puts "Executado com sucesso!"
  # 	next 
   else
